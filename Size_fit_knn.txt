@@ -1,0 +1,223 @@
+import pandas as pd
+import numpy as np
+from sklearn.neighbors import NearestNeighbors
+
+# User data (example values, replace with actual user input)
+hips = 95
+waist = 70
+
+# Load skirts CSV file
+skirts_df = pd.read_csv('skirts.csv')
+
+# Fill NaN values with the mean of the respective columns
+skirts_df['to_fit_hip'].fillna(skirts_df['to_fit_hip'].mean(), inplace=True)
+skirts_df['to_fit_waist'].fillna(skirts_df['to_fit_waist'].mean(), inplace=True)
+
+# Features for KNN
+features = skirts_df[['to_fit_hip', 'to_fit_waist']]
+
+# User measurements
+user_measurements = np.array([[hips, waist]])
+
+# KNN model
+knn = NearestNeighbors(n_neighbors=10)
+knn.fit(features)
+
+# Find the top 10 closest matches
+distances, indices = knn.kneighbors(user_measurements)
+
+# Get the top 10 matched rows
+top_matches = skirts_df.iloc[indices[0]]
+
+# Select one random image from the comma-separated images
+top_matches['image'] = top_matches['images'].apply(lambda x: np.random.choice(x.split(',')) if pd.notna(x) else None)
+
+# Display the top 10 matches
+results = top_matches[['size', 'product_id', 'title', 'initial_price', 'category', 'image']]
+print(results)
+
+# If you want to format the output nicely:
+for index, row in results.iterrows():
+    print(f"Size: {row['size']}")
+    print(f"Product ID: {row['product_id']}")
+    print(f"Title: {row['title']}")
+    print(f"Initial Price: {row['initial_price']}")
+    print(f"Category: {row['category']}")
+    print(f"Image: {row['image']}")
+    print()
+
+
+
+
+
+
+
+import pandas as pd
+import numpy as np
+from sklearn.neighbors import NearestNeighbors
+
+# User data (example values, replace with actual user input)
+chest = 85
+waist = 70
+height_shoulder = 150
+height_hips = 100
+front_length = height_shoulder - height_hips
+
+# Load tops CSV file
+tops_df = pd.read_csv('tops.csv')
+
+# Fill NaN values with the mean of the respective columns
+tops_df['chest'].fillna(tops_df['chest'].mean(), inplace=True)
+tops_df['waist'].fillna(tops_df['waist'].mean(), inplace=True)
+tops_df['front_length'].fillna(tops_df['front_length'].mean(), inplace=True)
+
+# Features for KNN
+features = tops_df[['chest', 'waist', 'front_length']]
+
+# User measurements
+user_measurements = np.array([[chest, waist, front_length]])
+
+# KNN model
+knn = NearestNeighbors(n_neighbors=10)
+knn.fit(features)
+
+# Find the top 10 closest matches
+distances, indices = knn.kneighbors(user_measurements)
+
+# Get the top 10 matched rows
+top_matches = tops_df.iloc[indices[0]]
+
+# Select one random image from the comma-separated images
+top_matches['image'] = top_matches['images'].apply(lambda x: np.random.choice(x.split(',')) if pd.notna(x) else None)
+
+# Display the top 10 matches
+results = top_matches[['size', 'product_id', 'title', 'initial_price', 'category', 'image']]
+print(results)
+
+# If you want to format the output nicely:
+for index, row in results.iterrows():
+    print(f"Size: {row['size']}")
+    print(f"Product ID: {row['product_id']}")
+    print(f"Title: {row['title']}")
+    print(f"Initial Price: {row['initial_price']}")
+    print(f"Category: {row['category']}")
+    print(f"Image: {row['image']}")
+    print()
+
+
+
+
+
+
+
+
+import pandas as pd
+import numpy as np
+from sklearn.neighbors import NearestNeighbors
+
+# User data (example values, replace with actual user input)
+waist = 80
+hips = 90
+height_hips = 100
+
+# Load jeans CSV file
+jeans_df = pd.read_csv('jeans.csv')
+
+# Fill NaN values with the mean of the respective columns
+jeans_df['to_fit_waist'].fillna(jeans_df['to_fit_waist'].mean(), inplace=True)
+jeans_df['hips'].fillna(jeans_df['hips'].mean(), inplace=True)
+jeans_df['outseam_length'].fillna(jeans_df['outseam_length'].mean(), inplace=True)
+
+# Features for KNN
+features = jeans_df[['to_fit_waist', 'hips', 'outseam_length']]
+
+# User measurements
+user_measurements = np.array([[waist, hips, height_hips]])
+
+# KNN model
+knn = NearestNeighbors(n_neighbors=10)
+knn.fit(features)
+
+# Find the top 10 closest matches
+distances, indices = knn.kneighbors(user_measurements)
+
+# Get the top 10 matched rows
+top_matches = jeans_df.iloc[indices[0]]
+
+# Select one random image from the comma-separated images
+top_matches['image'] = top_matches['images'].apply(lambda x: np.random.choice(x.split(',')))
+
+# Display the top 10 matches
+results = top_matches[['size', 'product_id', 'title', 'initial_price', 'category', 'image']]
+print(results)
+
+# If you want to format the output nicely:
+for index, row in results.iterrows():
+    print(f"Size: {row['size']}")
+    print(f"Product ID: {row['product_id']}")
+    print(f"Title: {row['title']}")
+    print(f"Initial Price: {row['initial_price']}")
+    print(f"Category: {row['category']}")
+    print(f"Image: {row['image']}")
+    print()
+
+
+
+
+
+
+
+
+import pandas as pd
+import numpy as np
+from sklearn.neighbors import NearestNeighbors
+
+# User data (example values, replace with actual user input)
+chest = 100
+waist = 80
+height_shoulder = 150
+height_hips = 100
+
+# Derived measurement
+front_length = height_shoulder - height_hips
+
+# Load shirts CSV file
+shirts_df = pd.read_csv('shirts.csv')
+
+# Fill NaN values with the mean of the respective columns
+shirts_df['chest'].fillna(shirts_df['chest'].mean(), inplace=True)
+shirts_df['waist'].fillna(shirts_df['waist'].mean(), inplace=True)
+shirts_df['front_length'].fillna(shirts_df['front_length'].mean(), inplace=True)
+
+# Features for KNN
+features = shirts_df[['chest', 'waist', 'front_length']]
+
+# User measurements
+user_measurements = np.array([[chest, waist, front_length]])
+
+# KNN model
+knn = NearestNeighbors(n_neighbors=10)
+knn.fit(features)
+
+# Find the top 10 closest matches
+distances, indices = knn.kneighbors(user_measurements)
+
+# Get the top 10 matched rows
+top_matches = shirts_df.iloc[indices[0]]
+
+# Select one random image from the comma-separated images
+top_matches['image'] = top_matches['images'].apply(lambda x: np.random.choice(x.split(',')))
+
+# Display the top 10 matches
+results = top_matches[['size', 'product_id', 'title', 'initial_price', 'category', 'image']]
+print(results)
+
+# If you want to format the output nicely:
+for index, row in results.iterrows():
+    print(f"Size: {row['size']}")
+    print(f"Product ID: {row['product_id']}")
+    print(f"Title: {row['title']}")
+    print(f"Initial Price: {row['initial_price']}")
+    print(f"Category: {row['category']}")
+    print(f"Image: {row['image']}")
+    print()

@@ -1,0 +1,41 @@
+def calculate_body_shape(bust, waist, hips, gender):
+    if gender.lower() == 'female':
+        if abs(bust - hips) <= 2 and abs(waist - bust) <= 2 and abs(waist - hips) <= 2:
+            return "Rectangle"
+        elif hips > bust and hips > waist:
+            return "Triangle (Pear)"
+        elif bust > hips and bust > waist:
+            return "Inverted Triangle (Apple)"
+        elif abs(bust - hips) <= 2 and waist < bust and waist < hips:
+            return "Hourglass"
+        elif waist > bust and waist > hips:
+            return "Oval"
+        else:
+            return "Undefined"
+    elif gender.lower() == 'male':
+        if abs(bust - hips) <= 2 and abs(waist - bust) <= 2 and abs(waist - hips) <= 2:
+            return "Rectangle"
+        elif bust > waist and hips > waist and abs(bust - hips) <= 2:
+            return "Trapezoid"
+        elif bust > hips and bust > waist:
+            return "Inverted Triangle"
+        elif waist > bust and waist > hips:
+            return "Oval"
+        elif hips > bust and hips > waist:
+            return "Triangle"
+        else:
+            return "Undefined"
+    else:
+        return "Invalid gender input"
+
+# Get user input
+gender = input("Enter your gender (male/female): ")
+bust = float(input("Enter your bust/chest measurement (in inches): "))
+waist = float(input("Enter your waist measurement (in inches): "))
+hips = float(input("Enter your hips measurement (in inches): "))
+
+# Calculate body shape
+body_shape = calculate_body_shape(bust, waist, hips, gender)
+
+# Display the result
+print(f"Your body shape is: {body_shape}")
