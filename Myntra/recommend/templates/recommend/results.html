@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Size Recommendation Results</title>
+</head>
+<body>
+    <h1>Recommended Clothes</h1>
+
+    {% if gender == "male" %}
+        <h2>Shirts</h2>
+        {% for shirt in shirts_results %}
+            <div>
+                <p>Size: {{ shirt.size }}</p>
+                <p>Product ID: {{ shirt.product_id }}</p>
+                <p>Title: {{ shirt.title }}</p>
+                <p>Initial Price: {{ shirt.initial_price }}</p>
+                <p>Category: {{ shirt.category }}</p>
+                <img src="{{ shirt.image }}" alt="Product Image">
+            </div>
+        {% endfor %}
+
+        <h2>Jeans</h2>
+        {% for jean in jeans_results %}
+            <div>
+                <p>Size: {{ jean.size }}</p>
+                <p>Product ID: {{ jean.product_id }}</p>
+                <p>Title: {{ jean.title }}</p>
+                <p>Initial Price: {{ jean.initial_price }}</p>
+                <p>Category: {{ jean.category }}</p>
+                <img src="{{ jean.image }}" alt="Product Image">
+            </div>
+        {% endfor %}
+    {% else %}
+        <h2>Tops</h2>
+        {% for top in tops_results %}
+            <div>
+                <p>Size: {{ top.size }}</p>
+                <p>Product ID: {{ top.product_id }}</p>
+                <p>Title: {{ top.title }}</p>
+                <p>Initial Price: {{ top.initial_price }}</p>
+                <p>Category: {{ top.category }}</p>
+                <img src="{{ top.image }}" alt="Product Image">
+            </div>
+        {% endfor %}
+
+        <h2>Skirts</h2>
+        {% for skirt in skirts_results %}
+            <div>
+                <p>Size: {{ skirt.size }}</p>
+                <p>Product ID: {{ skirt.product_id }}</p>
+                <p>Title: {{ skirt.title }}</p>
+                <p>Initial Price: {{ skirt.initial_price }}</p>
+                <p>Category: {{ skirt.category }}</p>
+                <img src="{{ skirt.image }}" alt="Product Image">
+            </div>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Size Info</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #d58cf9, #ff80b3);
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .input-group {
+      margin-bottom: 15px;
+    }
+
+    .input-label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .input-field {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: #ff80b3;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #ff69b4;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Size Info</h1>
+    <div class="input-group">
+      <label class="input-label" for="gender">Gender:</label>
+      <input class="input-field" type="text" id="gender" placeholder="Enter gender">
+    </div>
+    <div class="input-group">
+      <label class="input-label" for="chest">Chest/ Bust:</label>
+      <input class="input-field" type="text" id="chest" placeholder="Enter chest/ bust">
+    </div>
+    <div class="input-group">
+      <label class="input-label" for="waist">Waist:</label>
+      <input class="input-field" type="text" id="waist" placeholder="Enter waist">
+    </div>
+    <div class="input-group">
+      <label class="input-label" for="hips">Hips:</label>
+      <input class="input-field" type="text" id="hips" placeholder="Enter hips">
+    </div>
+    <div class="input-group">
+      <label class="input-label" for="heightTillShoulder">Height_till_shoulder:</label>
+      <input class="input-field" type="text" id="heightTillShoulder" placeholder="Enter height till shoulder">
+    </div>
+    <div class="input-group">
+      <label class="input-label" for="heightTillHips">Height_till_hips:</label>
+      <input class="input-field" type="text" id="heightTillHips" placeholder="Enter height till hips">
+    </div>
+    <p>In inches only</p>
+    <a href="/figure/"><button>check result</button></a>
+  </div>
+</body>
+</html>
